@@ -18,7 +18,9 @@ int main()
 
 	unsigned int n;
 
+	std::cout << "n = ";
 	std::cin >> n;
+	std::cout << "sqrt(2) = " << std::endl;
 
 	squareRoot(&num1, &num2, n);
 
