@@ -25,16 +25,14 @@ void div10(RealNum* num)
 int division(RealNum* num1, RealNum* num2, RealNum* num3, unsigned int n)
 {
 	num3->delNum();
-	if (num1->getMinus() != num2->getMinus())
-	{
-		num3->setMinus(true);
-	}
 
 	RealNum numZ;
 	RealNum numZZ;
 	copyNum(num1, &numZ);
+	numZ.setMinus(false);
 	RealNum numN;
 	copyNum(num2, &numN);
+	numN.setMinus(false);
 	RealNum numC(1);
 	RealNum numE;
 
@@ -52,6 +50,10 @@ int division(RealNum* num1, RealNum* num2, RealNum* num3, unsigned int n)
 		if (compareGreater(&numZ, &numN) == 0)
 		{
 			addition(&numC, &numE, num3);
+			if (num1->getMinus() != num2->getMinus())
+			{
+				num3->setMinus(true);
+			}
 			return 0;
 		}
 
@@ -60,6 +62,10 @@ int division(RealNum* num1, RealNum* num2, RealNum* num3, unsigned int n)
 		div10(&numN);
 	}
 
+	if (num1->getMinus() != num2->getMinus())
+	{
+		num3->setMinus(true);
+	}
 
 	return 1;
 }
