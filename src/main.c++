@@ -10,6 +10,7 @@
 #include "../include/multiplication.h"
 #include "../include/division.h"
 #include "../include/squareRoot.h"
+#include "../include/pi.h"
 
 int main()
 {
@@ -35,39 +36,62 @@ int main()
 
 	/*--------------------PI--------------------*/
 
-	RealNum num3;
-	RealNum num4;
-	RealNum num5;
+	RealNum numPI;
 
-	num3.setMinus(true);
+	unsigned int n;
+	unsigned int c;
 
-	num3.setDigitVK(1, 0);
-	num3.setDigitVK(2, 1);
-	num3.setDigitVK(3, 2);
+	std::cout << "n = ";
+	std::cin >> n;
+	//n = 20;
+	std::cout << "c = ";
+	std::cin >> c;
+	//c = 3;
+	std::cout << "pi = " << std::endl;
 
-	num3.setDigitNK(4, 0);
-	num3.setDigitNK(5, 1);
-	num3.setDigitNK(6, 2);
+	calcPI(&numPI, c, n);
+
+	numPI.printNum();
+
+	// calcPIedge(&numPI, c, n);
+
+	// numPI.printNum();
+
+	/*--------------------etc--------------------*/
+
+	// RealNum num3;
+	// RealNum num4;
+	// RealNum num5;
+
+	// num3.setMinus(true);
+
+	// num3.setDigitVK(1, 0);
+	// num3.setDigitVK(2, 1);
+	// num3.setDigitVK(3, 2);
+
+	// num3.setDigitNK(4, 0);
+	// num3.setDigitNK(5, 1);
+	// num3.setDigitNK(6, 2);
 
 
-	num4.setMinus(true);
+	// num4.setMinus(true);
 
-	num4.setDigitVK(3, 0);
-	num4.setDigitVK(3, 1);
-	num4.setDigitVK(3, 2);
+	// num4.setDigitVK(3, 0);
+	// num4.setDigitVK(3, 1);
+	// num4.setDigitVK(3, 2);
 
-	num4.setDigitNK(1, 0);
-	num4.setDigitNK(2, 1);
-	num4.setDigitNK(3, 2);
+	// num4.setDigitNK(1, 0);
+	// num4.setDigitNK(2, 1);
+	// num4.setDigitNK(3, 2);
 
 
-	multiplication(&num3, &num4, &num5);
+	// multiplication(&num3, &num4, &num5);
 
-	num5.printNum();
+	// num5.printNum();
 
-	division(&num3, &num4, &num5, 10);
+	// division(&num3, &num4, &num5, 10);
 
-	num5.printNum();
+	// num5.printNum();
 
 	//system("PAUSE");
 	return 0;

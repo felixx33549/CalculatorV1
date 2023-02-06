@@ -2,4 +2,6 @@
 
 #include "realNum.h"
 
-int pi(unsigned int c, unsigned int n);
+int calcPI(RealNum* pi, unsigned int c, unsigned int n);
+
+int calcPIedge(RealNum* pi, unsigned int c, unsigned int n);
