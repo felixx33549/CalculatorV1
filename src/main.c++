@@ -46,8 +46,8 @@ int main()
 	num3.setDigitVK(3, 2);
 
 	num3.setDigitNK(4, 0);
-	num3.setDigitNK(4, 0);
-	num3.setDigitNK(4, 0);
+	num3.setDigitNK(5, 1);
+	num3.setDigitNK(6, 2);
 
 
 	num4.setMinus(true);
@@ -56,12 +56,16 @@ int main()
 	num4.setDigitVK(3, 1);
 	num4.setDigitVK(3, 2);
 
-	num4.setDigitNK(3, 0);
-	num4.setDigitNK(3, 0);
-	num4.setDigitNK(3, 0);
+	num4.setDigitNK(1, 0);
+	num4.setDigitNK(2, 1);
+	num4.setDigitNK(3, 2);
 
 
 	multiplication(&num3, &num4, &num5);
+
+	num5.printNum();
+
+	division(&num3, &num4, &num5, 10);
 
 	num5.printNum();
 
