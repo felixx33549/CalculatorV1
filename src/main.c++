@@ -17,12 +17,15 @@ int main()
 	RealNum num2;
 
 	unsigned int n;
+	unsigned int c;
 
 	std::cout << "n = ";
 	std::cin >> n;
+	std::cout << "c = ";
+	std::cin >> c;
 	std::cout << "sqrt(2) = " << std::endl;
 
-	squareRoot(&num1, &num2, n);
+	squareRoot(&num1, &num2, n, c);
 
 	num2.printNum();
 

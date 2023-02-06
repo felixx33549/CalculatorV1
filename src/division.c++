@@ -40,7 +40,7 @@ int division(RealNum* num1, RealNum* num2, RealNum* num3, unsigned int n)
 
 	unsigned int s = 0;
 
-	while (s < n)
+	while (s < n + 1)
 	{
 		while (compareGreater(&numZ, &numN) == 1)
 		{
