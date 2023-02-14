@@ -38,15 +38,22 @@ int main()
 
 	RealNum numPI;
 
-	unsigned int n;
-	unsigned int c;
+	unsigned int n = 20;
+	unsigned int c = 3;
 
-	std::cout << "n = ";
-	std::cin >> n;
-	//n = 20;
-	std::cout << "c = ";
-	std::cin >> c;
-	//c = 3;
+	if (n == 0)
+	{
+		std::cout << "n = ";
+		std::cin >> n;
+	}
+	if (c == 0)
+	{
+		std::cout << "c = ";
+		std::cin >> c;
+	}
+	
+	
+	
 	std::cout << "pi = " << std::endl;
 
 	calcPI(&numPI, c, n);
