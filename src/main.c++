@@ -63,7 +63,7 @@ int main()
 
 	numPI.printNum();
 
-	calcPIedge(&numPI, c, n);
+	calcPIvector(&numPI, c, n);
 
 	numPI.printNum();
 

@@ -103,3 +103,75 @@ int calcPIedge(RealNum* pi, unsigned int c, unsigned int n)
 
 	return 0;
 }
+
+int calcPIvector(RealNum* pi, unsigned int c, unsigned int n)
+{
+	RealNum num('1');
+	RealNum num2('2');
+	for (unsigned int i = 0; i < c; i++)
+	{
+		division(&num, &num2, &num, 0xfffffffe);
+	}
+	
+	RealNum num1('1');
+
+	RealNum numC;
+	RealNum numN;
+
+	RealNum numX;
+
+	std::vector<RealNum> C;
+	std::vector<RealNum> N;
+	std::vector<RealNum> X2;
+
+	while (compareGreater(&numX, &num1) == 2)
+	{
+		RealNum num0;
+		C.push_back(num0);
+		N.push_back(num0);
+		X2.push_back(num0);
+		multiplication(&numX, &numX, &X2.back());
+
+		calcPIv(&num, &X2.back(), &C.back(), &N.back());
+
+		addition(&numX, &num, &numX);
+	}
+	while (C.size())
+	{
+		addition(&C.back(), &numC, &numC);
+		C.pop_back();
+	}
+	while (N.size())
+	{
+		addition(&N.back(), &numN, &numN);
+		N.pop_back();
+	}
+	
+	mulWithDigit(&numC, 4);
+	division(&numC, &numN, pi, n);
+
+	return 0;
+}
+
+void calcPIv(RealNum* w, RealNum* numX2, RealNum* C, RealNum* N)
+{
+	RealNum num1('1');
+	RealNum numY;
+	RealNum numY2;
+	RealNum S;
+
+	while (compareGreater(&numY, &num1) == 2)
+	{
+		multiplication(&numY, &numY, &numY2);
+		addition(numX2, &numY2, &S);
+		if (compareGreater(&S, &num1) == 2)
+		{
+			addition(C, &num1, C);
+		}
+		addition(N, &num1, N);
+
+		addition(&numY, w, &numY);
+	}
+
+	return;
+}
