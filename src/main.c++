@@ -39,7 +39,7 @@ int main()
 	RealNum numPI;
 
 	unsigned int n = 20;
-	unsigned int c = 3;
+	unsigned int c = 4;
 
 	if (n == 0)
 	{
