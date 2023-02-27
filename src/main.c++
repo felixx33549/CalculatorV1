@@ -16,18 +16,23 @@ int main()
 {
 	/*--------------------SQRT(2)--------------------*/
 
-	// RealNum num1(2);
+	// RealNum num1('2');
 	// RealNum num2;
 
-	// unsigned int n;
-	// unsigned int c;
+	// unsigned int n = 0;
+	// unsigned int c = 0;
 
-	// //std::cout << "n = ";
-	// //std::cin >> n;
-	// n = 20;
-	// //std::cout << "c = ";
-	// //std::cin >> c;
-	// c = 10;
+	// if (n == 0)
+	// {
+	// 	std::cout << "n = ";
+	// 	std::cin >> n;
+	// }
+	// if (c == 0)
+	// {
+	// 	std::cout << "c = ";
+	// 	std::cin >> c;
+	// }
+
 	// std::cout << "sqrt(2) = " << std::endl;
 
 	// squareRoot(&num1, &num2, n, c);
@@ -38,8 +43,8 @@ int main()
 
 	RealNum numPI;
 
-	unsigned int n = 20;
-	unsigned int c = 4;
+	unsigned int n = 0;
+	unsigned int c = 0;
 
 	if (n == 0)
 	{
@@ -52,17 +57,15 @@ int main()
 		std::cin >> c;
 	}
 	
-	
-	
 	std::cout << "pi = " << std::endl;
 
 	calcPI(&numPI, c, n);
 
 	numPI.printNum();
 
-	// calcPIedge(&numPI, c, n);
+	calcPIedge(&numPI, c, n);
 
-	// numPI.printNum();
+	numPI.printNum();
 
 	/*--------------------etc--------------------*/
 
@@ -72,32 +75,38 @@ int main()
 
 	// num3.setMinus(true);
 
-	// num3.setDigitVK(1, 0);
-	// num3.setDigitVK(2, 1);
-	// num3.setDigitVK(3, 2);
+	// num3.setDigitVK('1', 0);
+	// num3.setDigitVK('2', 1);
+	// num3.setDigitVK('3', 2);
 
-	// num3.setDigitNK(4, 0);
-	// num3.setDigitNK(5, 1);
-	// num3.setDigitNK(6, 2);
+	// num3.setDigitNK('4', 0);
+	// num3.setDigitNK('5', 1);
+	// num3.setDigitNK('6', 2);
 
 
 	// num4.setMinus(true);
 
-	// num4.setDigitVK(3, 0);
-	// num4.setDigitVK(3, 1);
-	// num4.setDigitVK(3, 2);
+	// num4.setDigitVK('3', 0);
+	// num4.setDigitVK('3', 1);
+	// num4.setDigitVK('3', 2);
 
-	// num4.setDigitNK(1, 0);
-	// num4.setDigitNK(2, 1);
-	// num4.setDigitNK(3, 2);
+	// num4.setDigitNK('1', 0);
+	// num4.setDigitNK('2', 1);
+	// num4.setDigitNK('3', 2);
+	
+	// num3.printNum();
+	// num4.printNum();
 
+	// addition(&num3, &num4, &num5);
+	// num5.printNum();
+
+	// subtraction(&num3, &num4, &num5);
+	// num5.printNum();
 
 	// multiplication(&num3, &num4, &num5);
-
 	// num5.printNum();
 
 	// division(&num3, &num4, &num5, 10);
-
 	// num5.printNum();
 
 	//system("PAUSE");

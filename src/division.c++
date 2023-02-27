@@ -24,48 +24,42 @@ void div10(RealNum* num)
 
 int division(RealNum* num1, RealNum* num2, RealNum* num3, unsigned int n)
 {
-	num3->delNum();
-
 	RealNum numZ;
-	RealNum numZZ;
 	copyNum(num1, &numZ);
 	numZ.setMinus(false);
 	RealNum numN;
 	copyNum(num2, &numN);
 	numN.setMinus(false);
-	RealNum numC(1);
+	RealNum numC('1');
 	RealNum numE;
 
-	unsigned int s = 0;
-
-	while (s < n + 1)
+	for (unsigned int s = 0; s < n + 1; s++)
 	{
 		while (compareGreater(&numZ, &numN) == 1)
 		{
-			subtraction(&numZ, &numN, &numZZ);
-			copyNum(&numZZ, &numZ);
-			addition(&numC, &numE, num3);
-			copyNum(num3, &numE);
+			subtraction(&numZ, &numN, &numZ);
+			addition(&numC, &numE, &numE);
 		}
 		if (compareGreater(&numZ, &numN) == 0)
 		{
-			addition(&numC, &numE, num3);
+			addition(&numC, &numE, &numE);
 			if (num1->getMinus() != num2->getMinus())
 			{
-				num3->setMinus(true);
+				numE.setMinus(true);
 			}
+			copyNum(&numE, num3);
 			return 0;
 		}
 
-		s++;
 		div10(&numC);
 		div10(&numN);
 	}
 
 	if (num1->getMinus() != num2->getMinus())
 	{
-		num3->setMinus(true);
+		numE.setMinus(true);
 	}
 
+	copyNum(&numE, num3);
 	return 1;
 }

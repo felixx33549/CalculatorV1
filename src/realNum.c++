@@ -5,59 +5,33 @@
 RealNum::RealNum()
 {
 	this->minus = ' ';
-	this->numvk.push_back(0);
+	this->numvk.push_back('0');
 }
 
-RealNum::RealNum(unsigned int n)
+RealNum::RealNum(char n)
 {
 	this->minus = ' ';
-	n %= 10;
 	this->numvk.push_back(n);
 }
 
-RealNum::RealNum(char c, unsigned int n)
+RealNum::RealNum(char c, char n)
 {
-	this->minus = ' ';
 	if (c == '-')
 	{
 		this->minus = '-';
-		n %= 10;
-		this->numvk.push_back(n);
 	}
 	else
 	{
-		if (c == '0')
-		{
-			if (n == 0)
-			{
-				this->numvk.push_back(1);
-			}
-			else
-			{
-				this->numvk.push_back(0);
-				n -= 1;
-				for (size_t i = 0; i < n; i++)
-				{
-					this->numnk.push_back(0);
-				}
-				this->numnk.push_back(1);
-			}
-		}
-		if (c == '1')
-		{
-			for (size_t i = 0; i < n; i++)
-			{
-				this->numvk.push_back(0);
-			}
-			this->numvk.push_back(1);
-		}
+		this->minus = ' ';
 	}
+	this->numvk.push_back(n);
 }
 
 RealNum::~RealNum()
 {
 	//std::cout << "Destructor called for " << this->numvk[0] << std::endl;
-	this->delNum();
+	this->numvk.clear();
+	this->numnk.clear();
 }
 
 void RealNum::printNum()
@@ -90,7 +64,7 @@ void RealNum::normNum()
 {
 	for (unsigned int i = (unsigned int)this->numvk.size(); i > 0; i--)
 	{
-		if (this->numvk[i - 1] == 0)
+		if (this->numvk[i - 1] == '0')
 		{
 			this->numvk.pop_back();
 		}
@@ -101,7 +75,7 @@ void RealNum::normNum()
 	}
 	for (unsigned int i = (unsigned int)this->numnk.size(); i > 0; i--)
 	{
-		if (this->numnk[i - 1] == 0)
+		if (this->numnk[i - 1] == '0')
 		{
 			this->numnk.pop_back();
 		}
@@ -111,16 +85,10 @@ void RealNum::normNum()
 		}
 	}
 
-	if (this->numvk.empty() && this->numnk.empty())
-	{
-		this->minus = ' ';
-		this->numvk.push_back(0);
-		return;
-	}
 	if (this->numvk.empty())
 	{
-		this->numvk.push_back(0);
-		return;
+		this->numvk.push_back('0');
+		if (this->numnk.empty()) this->minus = ' ';
 	}
 	return;
 }
@@ -133,7 +101,7 @@ void RealNum::setMinus(bool m)
 	return;
 }
 
-void RealNum::setDigitVK(unsigned int d, unsigned int p)
+void RealNum::setDigitVK(char d, unsigned int p)
 {
 	if (p < this->numvk.size())
 	{
@@ -143,7 +111,7 @@ void RealNum::setDigitVK(unsigned int d, unsigned int p)
 	{
 		while (this->numvk.size() < p)
 		{
-			this->numvk.push_back(0);
+			this->numvk.push_back('0');
 		}
 		this->numvk.push_back(d);
 	}
@@ -151,7 +119,7 @@ void RealNum::setDigitVK(unsigned int d, unsigned int p)
 	return;
 }
 
-void RealNum::setDigitNK(unsigned int d, unsigned int p)
+void RealNum::setDigitNK(char d, unsigned int p)
 {
 	if (p < this->numnk.size())
 	{
@@ -161,7 +129,7 @@ void RealNum::setDigitNK(unsigned int d, unsigned int p)
 	{
 		while (this->numnk.size() < p)
 		{
-			this->numnk.push_back(0);
+			this->numnk.push_back('0');
 		}
 		this->numnk.push_back(d);
 	}
@@ -183,22 +151,28 @@ bool RealNum::getMinus()
 	else						return false;
 }
 
-unsigned int RealNum::getDigitVK(unsigned int p)
+char RealNum::getDigitVK(unsigned int p)
 {
 	if (p < this->numvk.size())
 	{
 		return this->numvk[p];
 	}
-	return 0;
+	else
+	{
+		return '0';
+	}
 }
 
-unsigned int RealNum::getDigitNK(unsigned int p)
+char RealNum::getDigitNK(unsigned int p)
 {
 	if (p < this->numnk.size())
 	{
 		return this->numnk[p];
 	}
-	return 0;
+	else
+	{
+		return '0';
+	}
 }
 
 unsigned int RealNum::getLengthVK()

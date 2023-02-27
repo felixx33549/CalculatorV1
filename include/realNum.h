@@ -6,27 +6,27 @@ class RealNum
 {
 public:
 	RealNum();
-	RealNum(unsigned int n);
-	RealNum(char c, unsigned int n);
+	RealNum(char n);
+	RealNum(char c, char n);
 	~RealNum();
 
 	void printNum();
 	void normNum();
 
 	void setMinus(bool m);
-	void setDigitVK(unsigned int d, unsigned int p);
-	void setDigitNK(unsigned int d, unsigned int p);
+	void setDigitVK(char d, unsigned int p);
+	void setDigitNK(char d, unsigned int p);
 	void delNum();
 
 	bool getMinus();
-	unsigned int getDigitVK(unsigned int p);
-	unsigned int getDigitNK(unsigned int p);
+	char getDigitVK(unsigned int p);
+	char getDigitNK(unsigned int p);
 
 	unsigned int getLengthVK();
 	unsigned int getLengthNK();
 
 private:
 	char minus;
-	std::vector<unsigned int> numvk;
-	std::vector<unsigned int> numnk;
+	std::vector<char> numvk;
+	std::vector<char> numnk;
 };

@@ -8,50 +8,43 @@
 
 int calcPI(RealNum* pi, unsigned int c, unsigned int n)
 {
-	RealNum num(1);
-	RealNum num2(2);
-	RealNum num2Z;
+	RealNum num('1');
+	RealNum num2('2');
 	for (unsigned int i = 0; i < c; i++)
 	{
-		division(&num, &num2, &num2Z, 1000);
-		copyNum(&num2Z, &num);
+		division(&num, &num2, &num, 0xfffffffe);
 	}
 	
-	RealNum num1(1);
+	RealNum num1('1');
 
 	RealNum numC;
 	RealNum numN;
 
 	RealNum numX;
 	RealNum numY;
-	RealNum numZ;
-	RealNum numZX;
-	RealNum numZY;
-	RealNum numZZ;
+	RealNum numX2;
+	RealNum numY2;
+	RealNum numS;
 
 	while (compareGreater(&numX, &num1) == 2)
 	{
 		while (compareGreater(&numY, &num1) == 2)
 		{
-			multiplication(&numX, &numX, &numZX);
-			multiplication(&numY, &numY, &numZY);
-			addition(&numZX, &numZY, &numZZ);
-			if (compareGreater(&numZZ, &num1) == 2)
+			multiplication(&numX, &numX, &numX2);
+			multiplication(&numY, &numY, &numY2);
+			addition(&numX2, &numY2, &numS);
+			if (compareGreater(&numS, &num1) == 2)
 			{
-				addition(&numC, &num1, &numZ);
-				copyNum(&numZ, &numC);
+				addition(&numC, &num1, &numC);
 			}
-			addition(&numN, &num1, &numZ);
-			copyNum(&numZ, &numN);
+			addition(&numN, &num1, &numN);
 			
-			addition(&numY, &num, &numZ);
-			copyNum(&numZ, &numY);
+			addition(&numY, &num, &numY);
 		}
 		numY.delNum();
-		numY.setDigitVK(0, 0);
+		numY.normNum();
 
-		addition(&numX, &num, &numZ);
-		copyNum(&numZ, &numX);
+		addition(&numX, &num, &numX);
 	}
 	
 	
@@ -64,50 +57,43 @@ int calcPI(RealNum* pi, unsigned int c, unsigned int n)
 
 int calcPIedge(RealNum* pi, unsigned int c, unsigned int n)
 {
-	RealNum num(1);
-	RealNum num2(2);
-	RealNum num2Z;
+	RealNum num('1');
+	RealNum num2('2');
 	for (unsigned int i = 0; i < c; i++)
 	{
-		division(&num, &num2, &num2Z, 1000);
-		copyNum(&num2Z, &num);
+		division(&num, &num2, &num, 0xfffffffe);
 	}
 	
-	RealNum num1(1);
+	RealNum num1('1');
 
 	RealNum numC;
 	RealNum numN;
 
 	RealNum numX;
 	RealNum numY;
-	RealNum numZ;
-	RealNum numZX;
-	RealNum numZY;
-	RealNum numZZ;
+	RealNum numX2;
+	RealNum numY2;
+	RealNum numS;
 
 	while (compareGreater(&numX, &num1) != 1)
 	{
 		while (compareGreater(&numY, &num1) != 1)
 		{
-			multiplication(&numX, &numX, &numZX);
-			multiplication(&numY, &numY, &numZY);
-			addition(&numZX, &numZY, &numZZ);
-			if (compareGreater(&numZZ, &num1) != 1)
+			multiplication(&numX, &numX, &numX2);
+			multiplication(&numY, &numY, &numY2);
+			addition(&numX2, &numY2, &numS);
+			if (compareGreater(&numS, &num1) != 1)
 			{
-				addition(&numC, &num1, &numZ);
-				copyNum(&numZ, &numC);
+				addition(&numC, &num1, &numC);
 			}
-			addition(&numN, &num1, &numZ);
-			copyNum(&numZ, &numN);
+			addition(&numN, &num1, &numN);
 			
-			addition(&numY, &num, &numZ);
-			copyNum(&numZ, &numY);
+			addition(&numY, &num, &numY);
 		}
 		numY.delNum();
-		numY.setDigitVK(0, 0);
+		numY.normNum();
 
-		addition(&numX, &num, &numZ);
-		copyNum(&numZ, &numX);
+		addition(&numX, &num, &numX);
 	}
 	
 	

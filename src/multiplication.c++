@@ -24,11 +24,9 @@ void mul10(RealNum* num)
 void mulWithDigit(RealNum* num, unsigned int n)
 {
 	RealNum numE;
-	RealNum numZ;
 	for (unsigned int i = 0; i < n; i++)
 	{
-		addition(num, &numE, &numZ);
-		copyNum(&numZ, &numE);
+		addition(num, &numE, &numE);
 	}
 	
 	copyNum(&numE, num);
@@ -38,10 +36,7 @@ void mulWithDigit(RealNum* num, unsigned int n)
 
 int multiplication(RealNum* num1, RealNum* num2, RealNum* num3)
 {
-	num3->delNum();
-	
 	RealNum numE;
-	RealNum numZE;
 	RealNum numZ;
 	RealNum numZZ;
 	copyNum(num2, &numZ);
@@ -50,9 +45,8 @@ int multiplication(RealNum* num1, RealNum* num2, RealNum* num3)
 	for (unsigned int i = 0; i < num1->getLengthVK(); i++)
 	{
 		copyNum(&numZ, &numZZ);
-		mulWithDigit(&numZZ, num1->getDigitVK(i));
-		addition(&numZZ, &numE, &numZE);
-		copyNum(&numZE, &numE);
+		mulWithDigit(&numZZ, num1->getDigitVK(i) - 48);
+		addition(&numZZ, &numE, &numE);
 		mul10(&numZ);
 	}
 
@@ -63,9 +57,8 @@ int multiplication(RealNum* num1, RealNum* num2, RealNum* num3)
 	{
 		div10(&numZ);
 		copyNum(&numZ, &numZZ);
-		mulWithDigit(&numZZ, num1->getDigitNK(i));
-		addition(&numZZ, &numE, &numZE);
-		copyNum(&numZE, &numE);
+		mulWithDigit(&numZZ, num1->getDigitNK(i) - 48);
+		addition(&numZZ, &numE, &numE);
 	}
 	
 	copyNum(&numE, num3);
