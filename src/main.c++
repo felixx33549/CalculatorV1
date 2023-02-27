@@ -43,8 +43,8 @@ int main()
 
 	RealNum numPI;
 
-	unsigned int n = 0;
-	unsigned int c = 0;
+	unsigned int n = 100;
+	unsigned int c = 6;
 
 	if (n == 0)
 	{

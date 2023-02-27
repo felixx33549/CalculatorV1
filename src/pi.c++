@@ -5,6 +5,7 @@
 #include "../include/addition.h"
 #include "../include/multiplication.h"
 #include "../include/division.h"
+#include <thread>
 
 int calcPI(RealNum* pi, unsigned int c, unsigned int n)
 {
@@ -123,6 +124,9 @@ int calcPIvector(RealNum* pi, unsigned int c, unsigned int n)
 	std::vector<RealNum> C;
 	std::vector<RealNum> N;
 	std::vector<RealNum> X2;
+	std::vector<RealNum> S;
+
+	std::vector<std::thread> vecOfThreads;
 
 	while (compareGreater(&numX, &num1) == 2)
 	{
@@ -130,22 +134,40 @@ int calcPIvector(RealNum* pi, unsigned int c, unsigned int n)
 		C.push_back(num0);
 		N.push_back(num0);
 		X2.push_back(num0);
+		S.push_back(num);
 		multiplication(&numX, &numX, &X2.back());
 
-		calcPIv(&num, &X2.back(), &C.back(), &N.back());
+		vecOfThreads.push_back(std::thread(calcPIv, &S.back(), &X2.back(), &C.back(), &N.back()));
+		vecOfThreads.back().join();
+		//calcPIv(&num, &X2.back(), &C.back(), &N.back());
 
 		addition(&numX, &num, &numX);
 	}
+	// for (std::thread & th : vecOfThreads)
+	// {
+	// 	th.join();
+	// }
+	
+
+
 	while (C.size())
 	{
 		addition(&C.back(), &numC, &numC);
+		C.back().delNum();
 		C.pop_back();
 	}
 	while (N.size())
 	{
 		addition(&N.back(), &numN, &numN);
+		N.back().delNum();
 		N.pop_back();
 	}
+	while (X2.size())
+	{
+		X2.back().delNum();
+		X2.pop_back();
+	}
+	
 	
 	mulWithDigit(&numC, 4);
 	division(&numC, &numN, pi, n);
