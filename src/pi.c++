@@ -6,13 +6,23 @@
 #include "../include/multiplication.h"
 #include "../include/division.h"
 #include <thread>
+#include <iostream>
 
 int calcPI(RealNum* pi, unsigned int c, unsigned int n)
 {
+	unsigned int zaehler = 1;
+	unsigned int zaehler2 = 1;
+	unsigned int zaehler3 = 1;
 	RealNum num('1');
 	RealNum num2('2');
 	for (unsigned int i = 0; i < c; i++)
 	{
+		zaehler *= 2;
+		if (i + 4 == c)
+		{
+			zaehler2 = zaehler;
+		}
+		
 		division(&num, &num2, &num, 0xfffffffe);
 	}
 	
@@ -29,6 +39,11 @@ int calcPI(RealNum* pi, unsigned int c, unsigned int n)
 
 	while (compareGreater(&numX, &num1) == 2)
 	{
+		if (zaehler3 % zaehler2 == 0)
+		{
+			std::cout << zaehler3 << "/" << zaehler << std::endl;
+		}
+		
 		while (compareGreater(&numY, &num1) == 2)
 		{
 			multiplication(&numX, &numX, &numX2);
@@ -45,6 +60,7 @@ int calcPI(RealNum* pi, unsigned int c, unsigned int n)
 		numY.delNum();
 		numY.normNum();
 
+		zaehler3 += 1;
 		addition(&numX, &num, &numX);
 	}
 	

@@ -44,7 +44,7 @@ int main()
 	RealNum numPI;
 
 	unsigned int n = 100;
-	unsigned int c = 6;
+	unsigned int c = 8;
 
 	if (n == 0)
 	{
@@ -63,9 +63,9 @@ int main()
 
 	numPI.printNum();
 
-	calcPIvector(&numPI, c, n);
+	// calcPIvector(&numPI, c, n);
 
-	numPI.printNum();
+	// numPI.printNum();
 
 	/*--------------------etc--------------------*/
 
