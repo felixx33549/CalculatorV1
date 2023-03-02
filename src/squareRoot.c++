@@ -11,13 +11,13 @@ int squareRoot(RealNum* num, RealNum* numE, unsigned int n, unsigned int c)
 
 	for (unsigned int i = 0; i < c; i++)
 	{
-		//num1.printNum();
+		num1.printNum();
 		division(num, &num1, &num2, n);
 		middleV(&num1, &num2, &num1);
 		num1.normNum();
 		num2.normNum();
 	}
-	//num1.printNum();
+	num1.printNum();
 
 	copyNum(&num1, numE);
 

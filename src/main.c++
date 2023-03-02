@@ -16,35 +16,11 @@ int main()
 {
 	/*--------------------SQRT(2)--------------------*/
 
-	// RealNum num1('2');
-	// RealNum num2;
+	RealNum num1('2');
+	RealNum num2;
 
-	// unsigned int n = 0;
-	// unsigned int c = 0;
-
-	// if (n == 0)
-	// {
-	// 	std::cout << "n = ";
-	// 	std::cin >> n;
-	// }
-	// if (c == 0)
-	// {
-	// 	std::cout << "c = ";
-	// 	std::cin >> c;
-	// }
-
-	// std::cout << "sqrt(2) = " << std::endl;
-
-	// squareRoot(&num1, &num2, n, c);
-
-	// num2.printNum();
-
-	/*--------------------PI--------------------*/
-
-	RealNum numPI;
-
-	unsigned int n = 100;
-	unsigned int c = 6;
+	unsigned int n = 0;
+	unsigned int c = 0;
 
 	if (n == 0)
 	{
@@ -56,16 +32,40 @@ int main()
 		std::cout << "c = ";
 		std::cin >> c;
 	}
+
+	std::cout << "sqrt(2) = " << std::endl;
+
+	squareRoot(&num1, &num2, n, c);
+
+	num2.printNum();
+
+	/*--------------------PI--------------------*/
+
+	// RealNum numPI;
+
+	// unsigned int n = 100;
+	// unsigned int c = 6;
+
+	// if (n == 0)
+	// {
+	// 	std::cout << "n = ";
+	// 	std::cin >> n;
+	// }
+	// if (c == 0)
+	// {
+	// 	std::cout << "c = ";
+	// 	std::cin >> c;
+	// }
 	
-	std::cout << "pi = " << std::endl;
+	// std::cout << "pi = " << std::endl;
 
-	calcPI(&numPI, c, n);
+	// calcPI(&numPI, c, n);
 
-	numPI.printNum();
+	// numPI.printNum();
 
-	calcPIvector(&numPI, c, n);
+	// calcPIvector(&numPI, c, n);
 
-	numPI.printNum();
+	// numPI.printNum();
 
 	/*--------------------etc--------------------*/
 
@@ -109,6 +109,6 @@ int main()
 	// division(&num3, &num4, &num5, 10);
 	// num5.printNum();
 
-	//system("PAUSE");
+	system("PAUSE");
 	return 0;
 }
