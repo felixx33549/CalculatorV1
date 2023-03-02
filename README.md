@@ -1,5 +1,9 @@
 # CalculatorV1
  
-to use in terminal
+commandline use
 
-test2
+calculations had to be adjusted in main.c++
+
+# Programm
+
+mingw64 g++ compiler
